@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/app
+      - scenic_db:/app
+    environment:
+      - DEBUG=False
+    restart: always
+
+volumes:
+  scenic_db:
+    driver: local
